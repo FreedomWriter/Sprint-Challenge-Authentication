@@ -17,6 +17,10 @@ server.use(express.json());
 server.use("/api/auth", authRouter);
 server.use("/api/jokes", authenticate, jokesRouter);
 
+server.get("/", (req, res) => {
+  res.send("<h2>Your dad isn't as funny as mine</h2>");
+});
+
 server.use((err, req, res, next) => {
   console.log(err.message);
   res.status(500).json({
