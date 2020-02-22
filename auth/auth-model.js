@@ -9,14 +9,16 @@ function findById(id) {
 }
 
 async function add(user) {
-  user.password = await bcrypt.hashSync(user.password, 10);
   const [id] = await db("users").insert(user);
 
   return findById(id);
 }
 
+function findBy(filter) {
+  return db("users").select("id", "username", "password");
+}
 module.exports = {
-  find,
   findById,
+  findBy,
   add
 };
