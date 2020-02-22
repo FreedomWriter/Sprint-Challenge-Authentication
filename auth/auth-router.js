@@ -5,7 +5,7 @@ const authenticate = require('./authenticate-middleware')
 
 const userModel = require('./auth-model')
 
-function
+function gen
 
 router.post("/register", async (req, res, next) => {
   try {
