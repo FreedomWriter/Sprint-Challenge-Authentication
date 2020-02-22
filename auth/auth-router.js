@@ -1,10 +1,8 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-router.post('/register', (req, res) => {
-  // implement registration
-});
+router.post("/register", async (req, res, next) => {});
 
-router.post('/login', (req, res) => {
+router.post("/login", (req, res) => {
   // implement login
 });
 
