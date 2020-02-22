@@ -40,22 +40,22 @@ describe("testing login", () => {
   });
 });
 
-describe("testing jokes", () => {
-  test("login route", async () => {
-    const regRes = await supertest(server)
-      .post("/api/auth/register")
-      .send({ username: "testUserLogin", password: "testPassword" });
-    expect(regRes.status).toBe(201);
-    expect(regRes.type).toBe("application/json");
-    expect(regRes.body.message).toBe("Welcome testUserLogin");
-    const res = await supertest(server)
-      .post("/api/auth/login")
-      .send({ username: "testUserLogin", password: "testPassword" });
-    expect(res.status).toBe(200);
-    expect(res.type).toBe("application/json");
-    expect(res.body.message).toBe("Welcome testUserLogin!");
-  });
-});
+// describe("testing jokes", () => {
+//   test("login route", async () => {
+//     const regRes = await supertest(server)
+//       .post("/api/auth/register")
+//       .send({ username: "testUserLogin", password: "testPassword" });
+//     expect(regRes.status).toBe(201);
+//     expect(regRes.type).toBe("application/json");
+//     expect(regRes.body.message).toBe("Welcome testUserLogin");
+//     const res = await supertest(server)
+//       .post("/api/auth/login")
+//       .send({ username: "testUserLogin", password: "testPassword" });
+//     expect(res.status).toBe(200);
+//     expect(res.type).toBe("application/json");
+//     expect(res.body.message).toBe("Welcome testUserLogin!");
+//   });
+// });
 test("get jokes", async () => {
   //   const login = await supertest(server)
   //     .post("/api/auth/register")
@@ -63,10 +63,11 @@ test("get jokes", async () => {
   //   expect(login.status).toBe(201);
   //   expect(login.type).toBe("application/json");
   //   expect(login.body.message).toBe("Welcome testUser");
-  //   const requestOptions = {
-  //     headers: { accept: "application/json" },
-  //     Authorization: login.body.token
-  //   };
+  const requestOptions = {
+    headers: { accept: "application/json" }
+    // ,
+    // Authorization: login.body.token
+  };
   const res = await supertest(server).get("/api/jokes", requestOptions);
   expect(res.type).toBe("application/json");
 });
